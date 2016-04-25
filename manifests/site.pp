@@ -54,5 +54,5 @@ node default {
 #}
 
 exec { 'motd_disp':
-  command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+  command => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
   }
