@@ -45,10 +45,14 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
 }
 
-file { '/etc/motd':
-  ensure  => file,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "Hey, Puppet is so awesome!\n",
-}
+#file { '/etc/motd':
+#  ensure  => file,
+#  owner   => 'root',
+#  group   => 'root',
+#  mode    => '0644',
+#  content => "Hey, Puppet is so awesome!\n",
+#}
+
+exec { 'motd_disp':
+  command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+  }
