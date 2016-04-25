@@ -56,3 +56,7 @@ node default {
 exec { 'motd_disp':
   command => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
   }
+
+host { 'testing.puppetlabs.vm':
+   ip => '127.0.0.1'
+  }
