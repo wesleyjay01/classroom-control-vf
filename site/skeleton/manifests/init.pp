@@ -11,3 +11,4 @@ class skeleton {
     owner   => 'root',
     source  => puppet:///modules/skeleton/bashrc',
     }
+}
