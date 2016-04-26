@@ -53,10 +53,10 @@ node default {
 #  content => "Hey, Puppet is so awesome!\n",
 #}
 
-exec { 'motd_disp':
-  command => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
-  }
+#exec { 'motd_disp':
+#  command => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+#  }
 
-host { 'testing.puppetlabs.vm':
-   ip => '127.0.0.1'
-  }
+#host { 'testing.puppetlabs.vm':
+#   ip => '127.0.0.1'
+#  }
