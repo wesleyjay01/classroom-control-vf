@@ -17,17 +17,17 @@ class nginx {
     source => 'puppet:///modules/nginx/index.html',
   }
 
-#  file {'/etc/nginx/nginx.conf':
-#    ensure => file,
-#    source => 'puppet:///modules/nginx/files/nginx.conf',
-#    require => Package['nginx'],
-#    notify => Service['nginx'],
-#  }
+  file {'/etc/nginx/nginx.conf':
+    ensure => file,
+    source => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
+    notify => Service['nginx'],
+  }
   
 
 #  file {'/etc/nginx/conf.d/default.conf':
 #    ensure => file,
-#    source => 'puppet:///modules/nginx/files/default.conf',
+#    source => 'puppet:///modules/nginx/default.conf',
 #    require => Package['nginx'],
 #    notify => Service['nginx'],
 #  }
