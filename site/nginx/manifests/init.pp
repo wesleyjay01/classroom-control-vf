@@ -4,33 +4,35 @@ class nginx {
     ensure => present,
     }
 
-  file {'/etc/sysconfig/memcached':
-    ensure => file,
-    source  => 'puppet:///modules/memcached/memcached',
-    require => Package['memcached'],
-    }
+  file {'/var/www':
+    ensure => directory,
+  }
 
+  file {'/var/www/index.html':
+    ensure => file,
+    source => 'puppet:///modules/nginx/index.html',
+  }
+
+  file {'/etc/nginx/nginx.conf':
+    ensure => file,
+    source => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
+    notify => Service['nginx'],
+  }
+  
+  file {'/etc/nginx/conf.d':
+    ensure => directory,
+  }
+  
+  file {'/etc/nginx/conf.d/default.conf':
+    ensure => file,
+    source => 'puppet:///modules/nginx/default.conf,
+    require => Package['nginx'],
+    notify => Service['nginx'],
+  }
+  
   service { 'nginx':
     ensure => running,
     enable => true,
-    subscribe => File['/etc/sysconfig/memcached'],
-  }
-
-}
-
-
-class memcached {
-  package {'memcached':
-    ensure => present,
-    }
-  file {'/etc/sysconfig/memcached':
-    ensure => file,
-    source  => 'puppet:///modules/memcached/memcached',
-    require => Package['memcached'],
-    }
-  service { 'memcached':
-    ensure => running,
-    enable => true,
-    subscribe => File['/etc/sysconfig/memcached'],
   }
 }
