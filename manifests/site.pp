@@ -50,6 +50,9 @@ node default {
   if $::osfamily == 'CentOS' {
       notice( ' Operating system is $::osfamily' )
   }
+  else {
+       notice( 'Not CentOS' )
+  }
 }
 
 #file { '/etc/motd':
