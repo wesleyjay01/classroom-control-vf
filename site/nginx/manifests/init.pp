@@ -20,7 +20,7 @@ class nginx {
 #  file {'/etc/nginx/nginx.conf':
 #    ensure => file,
 #    source => 'puppet:///modules/nginx/files/nginx.conf',
-3    require => Package['nginx'],
+#    require => Package['nginx'],
 #    notify => Service['nginx'],
 #  }
   
