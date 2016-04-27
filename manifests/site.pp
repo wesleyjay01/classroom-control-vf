@@ -47,6 +47,9 @@ node default {
   include skeleton
   include memcached
   include nginx
+  if $::osfamily == 'CentOS' {
+      notice( ' Operating system is $::osfamily' )
+  }
 }
 
 #file { '/etc/motd':
