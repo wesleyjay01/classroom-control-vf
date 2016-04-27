@@ -47,8 +47,8 @@ node default {
   include skeleton
   include memcached
   include nginx
-  if $::osfamily == 'CentOS' {
-      notice( ' Operating system is $::osfamily' )
+  if $::osfamily == 'RedHat' {
+      notice( ' Operating system is CentOS' )
   }
   else {
        notice( 'Not CentOS' )
