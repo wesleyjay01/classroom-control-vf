@@ -47,7 +47,9 @@ node default {
 #  include skeleton
 #  include memcached
 #  include nginx
-  includde users::admin
+#  includde users::admin
+  $message = hiera('message')
+  notify {$message:}
 }
 
 #file { '/etc/motd':
