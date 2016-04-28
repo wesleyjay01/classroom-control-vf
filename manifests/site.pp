@@ -49,6 +49,7 @@ node default {
 #  include nginx
 #  includde users::admin
   include nginx
+  include wrappers
 #    $message = hiera('message')
 #  notify {$message:}
 }
